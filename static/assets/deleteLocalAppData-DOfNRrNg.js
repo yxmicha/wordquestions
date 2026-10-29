@@ -1,0 +1,1 @@
+import{o as e}from"./startup-CfBHwiCR.js";export{e as deleteLocalAppData};

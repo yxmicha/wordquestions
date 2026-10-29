@@ -1,0 +1,1 @@
+import{o as e}from"./startup-CJsBPv_k.js";export{e as deleteLocalAppData};

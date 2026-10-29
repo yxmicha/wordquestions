@@ -1,0 +1,1 @@
+import{o as e}from"./startup-BHzL6_1f.js";export{e as deleteLocalAppData};

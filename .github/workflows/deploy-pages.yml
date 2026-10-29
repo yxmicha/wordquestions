@@ -1,0 +1,74 @@
+name: Deploy WordQuestions to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - static/**
+      - .github/workflows/deploy-pages.yml
+      - README.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site files
+        uses: actions/checkout@v6
+      - name: Verify private content is included
+        shell: bash
+        run: |
+          set -euo pipefail
+          manifest=.github/private-content-files.txt
+          IFS= read -r header < "$manifest"
+          [[ "$header" =~ ^#[[:space:]]index-sha256=([0-9a-f]{64})$ ]]
+          expected="${BASH_REMATCH[1]}"
+          file_count="$(sed -n '2s/^# file-count=//p' "$manifest")"
+          [[ "$file_count" =~ ^[1-9][0-9]*$ ]]
+          actual="$(sha256sum static/private-content-index.json)"
+          [[ "${actual%% *}" == "$expected" ]]
+          fingerprinted="private-content-index-${expected}.json"
+          cmp -s static/private-content-index.json "static/$fingerprinted"
+          grep -Fq "$fingerprinted" static/index.html
+          count=0
+          while IFS= read -r path; do
+            [[ "$path" == \#* ]] && continue
+            [[ "$path" =~ ^static/(encrypted-files/[0-9a-f-]{36}|content-indexes/[0-9a-f-]{36}[.]msgpack)$ ]]
+            if [[ ! -f "$path" ]]; then
+              printf 'Missing private content: %s\n' "$path" >&2
+              exit 1
+            fi
+            ((count += 1))
+          done < "$manifest"
+          ((count == file_count))
+          printf 'Verified %s private content files.\n' "$count"
+          size="$(du -sb static)"
+          size="${size%%[[:space:]]*}"
+          if ((size > 1000000000)); then
+            printf 'Static site exceeds the GitHub Pages 1 GB limit: %s bytes\n' "$size" >&2
+            exit 1
+          fi
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: static
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4

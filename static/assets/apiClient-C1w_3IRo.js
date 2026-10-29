@@ -1,0 +1,1 @@
+function e(e,t={}){let{timeoutMs:n=15e3,...r}=t;return window.fetch(e,{...r,signal:r.signal??AbortSignal.timeout(n)})}function t(e){return e instanceof TypeError||e instanceof DOMException&&(e.name===`AbortError`||e.name===`TimeoutError`)}export{e as n,t};

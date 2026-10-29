@@ -1,0 +1,1 @@
+function e(e){return new URL(e,{BASE_URL:`/`,DEV:!1,MODE:`production`,PROD:!0,SSR:!1}.VITE_API_ORIGIN??`https://api.wordquestions.com`).href}export{e as t};

@@ -1,0 +1,1 @@
+import{At as e,W as t,i as n,t as r,y as i}from"./shadowSupport-nZNWBJyZ.js";function a(){customElements.get(`reader-print-actions`)===void 0&&t(`reader-print-actions`,{content:void 0},(t,{element:a})=>{let o=a,s=r(o);return e(s),n(i,t.content,o)})}export{a as t};

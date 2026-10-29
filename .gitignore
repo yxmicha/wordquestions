@@ -1,0 +1,22 @@
+# Publish only the contents of static/. These root links keep the old Caddy
+# document root working until it switches to that directory.
+/android-chrome-*.png
+/apple-touch-icon.png
+/assets
+/bible-text
+/bible-version-catalog.msgpack
+/encrypted-files
+/favicon*
+/index.html
+/offline-content-manifest.json
+/private-content-manifest.json
+/question-banks
+/site.webmanifest
+/sw.js
+/workbox-*.js
+/.nojekyll
+/CNAME
+
+# Retain obsolete ciphertext IDs on disk. Force-add the current files listed in
+# .github/private-content-files.txt when preparing a release.
+/static/encrypted-files/*

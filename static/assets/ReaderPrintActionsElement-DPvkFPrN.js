@@ -1,0 +1,1 @@
+import{K as e,Pt as t,o as n,r,x as i}from"./ReaderPrintAnswer-B5cWsGfX.js";function a(){customElements.get(`reader-print-actions`)===void 0&&e(`reader-print-actions`,{content:void 0},(e,{element:a})=>{let o=a,s=r(o);return t(s),n(i,e.content,o)})}export{a as t};

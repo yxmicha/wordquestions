@@ -1,0 +1,1 @@
+import{o as e}from"./startup-C8EXharZ.js";export{e as deleteLocalAppData};
