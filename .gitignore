@@ -17,6 +17,7 @@
 /.nojekyll
 /CNAME
 
-# Retain obsolete ciphertext IDs on disk. Force-add the current files listed in
-# .github/private-content-files.txt when preparing a release.
+# Encrypted files are force-added from .github/private-content-files.txt when preparing a
+# release. Ciphertext that is not listed there is obsolete and is deleted, which keeps the
+# published site under the GitHub Pages size limit.
 /static/encrypted-files/*
