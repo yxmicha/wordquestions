@@ -1,0 +1,1 @@
+import{o as e}from"./startup-CrfWp-5_.js";export{e as deleteLocalAppData};

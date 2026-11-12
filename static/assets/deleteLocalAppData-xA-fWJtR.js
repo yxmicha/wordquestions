@@ -1,0 +1,1 @@
+import{o as e}from"./startup-CyWEA1dm.js";export{e as deleteLocalAppData};

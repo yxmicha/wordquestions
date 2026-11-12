@@ -1,0 +1,1 @@
+import{o as e}from"./startup-DV1vgIsM.js";export{e as deleteLocalAppData};

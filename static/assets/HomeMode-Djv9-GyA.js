@@ -1,0 +1,1 @@
+import{Mr as e,Qr as t,br as n,yr as r}from"./startup-CyWEA1dm.js";var i=e(`<reader-home-mode class=home-mode role=tabpanel aria-labelledby=reader-home-tab>`,1);function a(e){var a=n(i);return a._$owner=t(),r(()=>({e:e.catalog,t:e.onStart}),({e,t},n)=>{e!==n?.e&&(a.catalog=e),t!==n?.t&&(a.onStart=t)}),a}export{a as HomeMode};

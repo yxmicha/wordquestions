@@ -1,0 +1,1 @@
+import{Er as e,Rr as t,Tr as n,ii as r}from"./startup-BEIV69Dp.js";var i=t(`<reader-home-mode class=home-mode role=tabpanel aria-labelledby=reader-home-tab>`,1);function a(t){var a=e(i);return a._$owner=r(),n(()=>({e:t.catalog,t:t.onStart}),({e,t},n)=>{e!==n?.e&&(a.catalog=e),t!==n?.t&&(a.onStart=t)}),a}export{a as HomeMode};

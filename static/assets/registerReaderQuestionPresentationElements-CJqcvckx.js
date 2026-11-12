@@ -1,0 +1,1 @@
+import{t as e}from"./startup-BEIV69Dp.js";export{e as registerReaderQuestionPresentationElements};

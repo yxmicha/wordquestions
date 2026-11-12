@@ -1,0 +1,1 @@
+import{o as e}from"./startup-D8oF2-xN.js";export{e as deleteLocalAppData};

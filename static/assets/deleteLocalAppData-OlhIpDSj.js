@@ -1,0 +1,1 @@
+import{o as e}from"./startup-DJbg2tKc.js";export{e as deleteLocalAppData};
