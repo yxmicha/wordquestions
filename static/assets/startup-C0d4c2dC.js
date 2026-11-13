@@ -415,6 +415,18 @@ input:focus-visible + .reader-scope-track {
     box-shadow var(--motion-micro) var(--ease-standard);
 }
 
+:host(.pwa-install-action) {
+  padding-inline: calc(var(--space-4) + 1.5rem + var(--space-2));
+  text-align: center;
+}
+
+:host(.pwa-install-action) > .settings-install-logo {
+  position: absolute;
+  inset-inline-start: var(--space-4);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
 :host(.secondary-action:hover),
 :host(.secondary-action:focus) {
   color: var(--color-ink);
