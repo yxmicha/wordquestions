@@ -415,18 +415,6 @@ input:focus-visible + .reader-scope-track {
     box-shadow var(--motion-micro) var(--ease-standard);
 }
 
-:host(.pwa-install-action) {
-  padding-inline: calc(var(--space-4) + 1.5rem + var(--space-2));
-  text-align: center;
-}
-
-:host(.pwa-install-action) > .settings-install-logo {
-  position: absolute;
-  inset-inline-start: var(--space-4);
-  inset-block-start: 50%;
-  transform: translateY(-50%);
-}
-
 :host(.secondary-action:hover),
 :host(.secondary-action:focus) {
   color: var(--color-ink);
@@ -5530,7 +5518,7 @@ fieldset {
 .pwa-install-sheet {
   display: grid;
   flex: 1;
-  align-content: center;
+  align-content: safe center;
   margin: 0;
 }
 
@@ -5538,14 +5526,41 @@ fieldset {
   display: grid;
   justify-items: center;
   gap: var(--space-8);
+  inline-size: min(100%, 26rem);
+  margin-inline: auto;
   text-align: center;
+}
+
+.pwa-install-intro {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.pwa-install-logo {
+  inline-size: 5rem;
+  block-size: 5rem;
+  margin-block-end: var(--space-3);
+}
+
+.pwa-install-intro h1 {
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.pwa-install-intro p {
+  max-inline-size: 32ch;
+  color: var(--color-ink-muted);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  text-wrap: balance;
 }
 
 .pwa-install-actions {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  inline-size: 100%;
+  inline-size: min(100%, 20rem);
 }
 
 .pwa-install-action {
